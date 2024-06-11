@@ -18,6 +18,10 @@ const config = {
       },
     },
     extend: {
+      fontFamily:{
+        os: ['var(--font-os)'],
+        oswald: ['var(--font-oswald)'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
