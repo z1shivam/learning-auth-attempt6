@@ -1,7 +1,5 @@
 import { LoginButton } from "@/components/auth/LoginButton";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import bgImage from "@/public/site-bg.jpeg";
 import Meteors from "@/components/magicui/meteors";
 import SparklesText from "@/components/magicui/sparkles-text";
 import ShineBorder from "@/components/magicui/shine-border";

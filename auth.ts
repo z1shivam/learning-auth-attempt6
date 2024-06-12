@@ -4,6 +4,12 @@ import { UserTokenSchema } from "./schemas/authSchema";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   debug: true,
+  pages: {
+    signIn: "/login",
+    signOut: "/logout",
+    error: "/error",
+  },
+  callbacks: {},
   providers: [
     Credentials({
       credentials: {
