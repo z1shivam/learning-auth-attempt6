@@ -14,7 +14,7 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
 
   const user = await getUserByEmail(email);
   if (!user) {
-    return { error: "User not found" };
+    return { error: "User not found." };
   }
   const isValidPassword = await bcrypt.compare(password, user.password);
   if (!isValidPassword) {

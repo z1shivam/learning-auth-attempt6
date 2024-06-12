@@ -11,7 +11,7 @@ import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
-import { signIn } from "@/auth";
+import ShineBorder from "../magicui/shine-border";
 
 interface AuthCardWrapperProps {
   children: React.ReactNode;
@@ -32,18 +32,18 @@ interface BackButtonProps {
 
 export const AuthHeader = ({ label }: HeaderProps) => {
   return (
-    <div className="w-full flex flex-col gap-y-2 items-start justify-start">
+    <div className="flex w-full flex-col items-start justify-start gap-y-2">
       <Link href={"/"}>
         <h1 className={cn("text-3xl font-semibold")}>SimpleAuth</h1>
       </Link>
-      <p className="text-muted-foreground text-sm">{label}</p>
+      <p className="text-sm text-muted-foreground">{label}</p>
     </div>
   );
 };
 
 export const BackButton = ({ href, label }: BackButtonProps) => {
   return (
-    <Button variant={"link"} className="font-normal w-full" size={"sm"} asChild>
+    <Button variant={"link"} className="w-full font-normal" size={"sm"} asChild>
       <Link href={href}>{label}</Link>
     </Button>
   );
@@ -51,12 +51,12 @@ export const BackButton = ({ href, label }: BackButtonProps) => {
 
 export const SocialLoginButtons = () => {
   return (
-    <div className="flex items-center w-full gap-x-2">
+    <div className="flex w-full items-center gap-x-2">
       <Button
         size={"lg"}
         variant={"outline"}
         className="w-full"
-        onClick={()=>{}}
+        onClick={() => {}}
       >
         <FcGoogle className="h-5 w-5" />
       </Button>
@@ -80,19 +80,24 @@ export const AuthCardWrapper = ({
   showSocial,
 }: AuthCardWrapperProps) => {
   return (
-    <Card className="w-full shadow-none border-none max-w-[400px] md:w-[400px] md:shadow-md md:border-2 md:border-slate-300">
-      <CardHeader>
-        <AuthHeader label={headerLabel} />
-      </CardHeader>
-      <CardContent>{children}</CardContent>
-      {showSocial && (
+    <Card className="w-full max-w-[400px] border-none shadow-none md:w-[400px] md:border-2 md:border-slate-300 md:shadow-md">
+      <ShineBorder
+        className="w-full max-w-[400px]  shadow-none md:w-[400px]"
+        color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+      >
+        <CardHeader>
+          <AuthHeader label={headerLabel} />
+        </CardHeader>
+        <CardContent>{children}</CardContent>
+        {showSocial && (
+          <CardFooter>
+            <SocialLoginButtons />
+          </CardFooter>
+        )}
         <CardFooter>
-          <SocialLoginButtons />
+          <BackButton label={backButtonLabel} href={backButtonHref} />
         </CardFooter>
-      )}
-      <CardFooter>
-        <BackButton label={backButtonLabel} href={backButtonHref} />
-      </CardFooter>
+      </ShineBorder>
     </Card>
   );
 };

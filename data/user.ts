@@ -1,6 +1,6 @@
 
 import dbConnect from "../lib/dbConnect";
-import User, { Users } from "@/model/userModel";
+import User from "@/model/userModel";
 
 export const getAllUsers = async () => {
   await dbConnect();

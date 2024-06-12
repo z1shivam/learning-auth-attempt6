@@ -1,15 +1,28 @@
 import { auth } from "../auth"
  
-export default async function UserName() {
+export  async function UserName() {
   const session = await auth()
  
   if (!session?.user) return null
  
   return (
-    <div>
-      <p>
+ 
+      <span className="text-blue-600">
         {session.user.name}
-      </p>
-    </div>
+      </span>
+ 
+  )
+}
+export  async function UserEmail() {
+  const session = await auth()
+ 
+  if (!session?.user) return null
+ 
+  return (
+ 
+      <span className="text-blue-600">
+        {session.user.email}
+      </span>
+ 
   )
 }

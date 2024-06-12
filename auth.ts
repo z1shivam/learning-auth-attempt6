@@ -3,6 +3,7 @@ import Credentials from "next-auth/providers/credentials";
 import { UserTokenSchema } from "./schemas/authSchema";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  debug: true,
   providers: [
     Credentials({
       credentials: {
